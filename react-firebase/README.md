@@ -53,7 +53,8 @@ This project is an implementation of Firebase where student data is stored in **
    function saveStudentData(studentId, name, age) {
        set(ref(database, 'students/' + studentId), {
            name: name,
-           age: age
+           age: age,
+           mobile:mobile
        });
    }
    ```
@@ -64,7 +65,9 @@ This project is an implementation of Firebase where student data is stored in **
        try {
            const docRef = await addDoc(collection(firestore, "faculty"), {
                name: name,
-               department: department
+               age: age,
+               mobile:mobile
+              
            });
            console.log("Faculty added with ID: ", docRef.id);
        } catch (e) {
