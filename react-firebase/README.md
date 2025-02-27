@@ -8,7 +8,6 @@ This project is an implementation of Firebase where student data is stored in **
 - **Firebase** (Realtime Database & Firestore)
 - **JavaScript/React **
 
-
 ## Features
 - Store and retrieve **student data** from Firebase Realtime Database.
 - Store and retrieve **faculty data** from Firebase Firestore.
@@ -31,16 +30,18 @@ This project is an implementation of Firebase where student data is stored in **
      import { getDatabase, ref, set } from "firebase/database";
      import { getFirestore, collection, addDoc } from "firebase/firestore";
      
-  const firebaseConfig = {
-  apiKey: "AIzaSyDkY_GK4VDusJgoYPyJVxGMIcDBWQm-28I",
-  authDomain: "management-platform-584fb.firebaseapp.com",
-  projectId: "management-platform-584fb",
-  storageBucket: "management-platform-584fb.firebasestorage.app",
-  messagingSenderId: "270973307863",
-  appId: "1:270973307863:web:4a725ec0d161615d5b5992",
-  measurementId: "G-JLV19K4BZH",
-  databaseURL:"https://management-platform-584fb-default-rtdb.firebaseio.com"
-  };
+     const firebaseConfig = {
+       apiKey: "AIzaSyDkY_GK4VDusJgoYPyJVxGMIcDBWQm-28I",
+       authDomain: "management-platform-584fb.firebaseapp.com",
+       projectId: "management-platform-584fb",
+       storageBucket: "management-platform-584fb.firebasestorage.app",
+       messagingSenderId: "270973307863",
+       appId: "1:270973307863:web:4a725ec0d161615d5b5992",
+        measurementId: "G-JLV19K4BZH",
+      databaseURL:"https://management-platform-584fb-default-rtdb.firebaseio.com"
+
+     
+     };
 
      const app = initializeApp(firebaseConfig);
      const database = getDatabase(app);
@@ -52,9 +53,7 @@ This project is an implementation of Firebase where student data is stored in **
    function saveStudentData(studentId, name, age) {
        set(ref(database, 'students/' + studentId), {
            name: name,
-           age: age,
-           mobile:mobile
-   
+           age: age
        });
    }
    ```
@@ -65,8 +64,7 @@ This project is an implementation of Firebase where student data is stored in **
        try {
            const docRef = await addDoc(collection(firestore, "faculty"), {
                name: name,
-               age: age,
-               mobile:mobile
+               department: department
            });
            console.log("Faculty added with ID: ", docRef.id);
        } catch (e) {
@@ -87,3 +85,5 @@ This project is an implementation of Firebase where student data is stored in **
 
 This is a basic Firebase integration project where student data is managed using Realtime Database and faculty data using Firestore. 🚀
 
+
+ 
